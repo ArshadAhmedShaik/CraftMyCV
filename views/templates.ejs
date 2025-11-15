@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CraftMyCV - Choose Your Template!</title>
+    <link rel="stylesheet" href="/css/templates.css">
+    <link rel="icon" href="/images/logo_crop.png" type="image/x-icon">
+</head>
+
+<body>
+
+   <div class="header-logo">
+        <img src="/images/logo.png" alt="CraftMyCV Logo">
+        <h1>Choose Your Template!</h1>
+        <div class="right-spacer"></div>
+    </div>
+
+    <div class="templates-container">
+
+    
+        <% for (let i = 1; i <= 6; i++) { %>
+            <div class="template-card">
+
+                <div class="preview-box">
+                    <p class="preview-text">Template <%= i %> Preview</p>
+                </div>
+
+                <h3>Template <%= i %></h3>
+
+                <a href="/resume/<%= data.resumeId %>/templates/<%= i %>" class="use-btn">
+                    Use Template
+                </a>
+
+            </div>
+        <% } %>
+
+    </div>
+
+    <p class="ending">Made with ❤️ by Arshad!</p>
+
+</body>
+</html>

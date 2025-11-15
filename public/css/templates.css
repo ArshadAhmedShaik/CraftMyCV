@@ -1,0 +1,188 @@
+/* ==========================================================================
+   templates.css — Clean, Modern, Shadow-Based Design
+   ========================================================================== */
+
+/* ---------------------------
+   1) Theme Variables
+   --------------------------- */
+:root {
+    --bg: #ffffff;
+    --fg: #111111;
+    --muted: #676767;
+
+    --card-bg: #ffffff;
+    --accent-bg: #f5f7fa;
+
+    /* soft border as shadow-based outline */
+    --soft-border: rgba(0, 0, 0, 0.12);
+
+    --radius: 14px;
+    --shadow: 0 2px 12px rgba(0, 0, 0, 0.10);
+    --shadow-hover: 0 4px 18px rgba(0, 0, 0, 0.14);
+
+    --max-width: 1100px;
+
+    --mono: "Segoe UI", Roboto, Arial, sans-serif;
+}
+
+/* ---------------------------
+   2) Base Reset
+   --------------------------- */
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+html,
+body {
+    margin: 0;
+    background: var(--bg);
+    font-family: var(--mono);
+    color: var(--fg);
+}
+
+/* ---------------------------
+   3) Heading
+   --------------------------- */
+
+.header-logo {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  margin-bottom: 20px;
+  padding: 15px 20px;
+
+  background-color: rgba(240, 248, 255, 0.4);
+  border-bottom-left-radius: 2rem;
+  border-bottom-right-radius: 2rem;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.4);
+}
+
+/* Logo */
+.header-logo img {
+  height: 4.8rem;
+  width: auto;
+}
+
+/* Centered Heading */
+.header-logo h1 {
+  flex: 1;                 /* expands to center automatically */
+  text-align: center;
+  margin: 0;
+
+  font-family: 'Trebuchet MS', Arial, sans-serif;
+  font-size: 3rem;
+  letter-spacing: 0.6px;
+
+  transition: 0.2s;
+  cursor: pointer;
+}
+
+.header-logo h1:hover {
+  color: crimson;
+}
+
+/* Empty spacer to balance left logo */
+.right-spacer {
+  width: 55px;   /* same width as logo for perfect centering */
+}
+
+/* ---------------------------
+   4) Templates Grid
+   --------------------------- */
+.templates-container {
+    max-width: var(--max-width);
+    margin: 40px auto;
+    padding: 10px 20px;
+
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 28px;
+}
+
+/* ---------------------------
+   5) Template Card
+   --------------------------- */
+.template-card {
+    background: var(--card-bg);
+    border-radius: var(--radius);
+    padding: 20px;
+
+    box-shadow: var(--shadow);
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 16px;
+
+    transition: 0.3s ease;
+}
+
+.template-card:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-hover);
+}
+
+/* ---------------------------
+   6) Preview Box
+   --------------------------- */
+.preview-box {
+    width: 100%;
+    height: 320px;
+
+    background: #fff;
+    border-radius: 10px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    /* replaces solid border with glowing shadow edge */
+    box-shadow: inset 0 0 10px var(--soft-border);
+}
+
+.preview-text {
+    font-size: 1rem;
+    color: var(--muted);
+    letter-spacing: 0.3px;
+}
+
+/* ---------------------------
+   7) Use Button
+   --------------------------- */
+.use-btn {
+    display: inline-block;
+    padding: 10px 16px;
+    width: 100%;
+    text-align: center;
+
+    background: var(--fg);
+    color: var(--bg);
+
+    border-radius: 10px;
+    font-weight: 700;
+    letter-spacing: 0.4px;
+    text-transform: uppercase;
+
+    /* soft shadow as border alternative */
+    box-shadow: inset 0 0 6px rgba(255, 255, 255, 0.25);
+
+    transition: 0.15s ease;
+    text-decoration: none;
+}
+
+.use-btn:hover {
+    opacity: 0.92;
+    transform: translateY(-2px);
+}
+
+/* Ending Note */
+.ending {
+    text-align: center;
+    padding: 2rem 0;
+    font-size: 1.15rem;
+    font-weight: 500;
+    color: var(--muted);
+}

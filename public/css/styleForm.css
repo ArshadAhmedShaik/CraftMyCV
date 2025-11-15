@@ -47,7 +47,7 @@ body {
 /* ---------------------------
    3) Page Layout
    --------------------------- */
-body > form,
+body>form,
 .container {
   max-width: var(--max-width);
   margin: 32px auto;
@@ -60,25 +60,49 @@ body > form,
 /* ---------------------------
    4) Headings
    --------------------------- */
-h1 {
-  margin: 0 0 16px;
-  text-align: center;
-  font-family: 'Trebuchet MS', Arial, sans-serif;
-  font-size: 3rem;
-  letter-spacing: 0.6px;
 
-  padding-bottom: 12px;
+/* Header with Logo */
+.header-logo {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  margin-bottom: 20px;
+  padding: 15px 20px;
+
   background-color: rgba(240, 248, 255, 0.4);
   border-bottom-left-radius: 2rem;
   border-bottom-right-radius: 2rem;
   box-shadow: 0 0 5px rgba(0, 0, 0, 0.4);
+}
+
+/* Logo */
+.header-logo img {
+  height: 4.8rem;
+  width: auto;
+}
+
+/* Centered Heading */
+.header-logo h1 {
+  flex: 1;                 /* expands to center automatically */
+  text-align: center;
+  margin: 0;
+
+  font-family: 'Trebuchet MS', Arial, sans-serif;
+  font-size: 3rem;
+  letter-spacing: 0.6px;
 
   transition: 0.2s;
   cursor: pointer;
 }
 
-h1:hover {
+.header-logo h1:hover {
   color: crimson;
+}
+
+/* Empty spacer to balance left logo */
+.right-spacer {
+  width: 55px;   /* same width as logo for perfect centering */
 }
 
 /* ---------------------------
@@ -175,7 +199,7 @@ button[type="submit"] {
   border-radius: 10px;
 }
 
-.section > button[type="button"] {
+.section>button[type="button"] {
   background: transparent;
   color: var(--fg);
   border: 1px dashed #333;
@@ -183,7 +207,7 @@ button[type="submit"] {
 }
 
 button:hover,
-.section > button:hover {
+.section>button:hover {
   opacity: 0.95;
   transform: translateY(-1px);
   border: 1px solid black;
@@ -197,7 +221,8 @@ button:hover,
   background: #fff;
   padding: 10px 12px;
 
-  margin: 20px 0; /* ensures margin-top when new items added */
+  margin: 20px 0;
+  /* ensures margin-top when new items added */
 
   border-radius: 6px;
   display: flex;
@@ -250,6 +275,8 @@ button:hover,
   font-weight: 600;
 }
 
+
+
 /* ---------------------------
    10) Utilities
    --------------------------- */
@@ -289,13 +316,14 @@ hr {
    11) Print Styles
    --------------------------- */
 @media print {
+
   body,
   html {
     background: #fff;
     color: #000;
   }
 
-  body > form {
+  body>form {
     border: none;
     box-shadow: none;
     padding: 0;

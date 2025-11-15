@@ -14,6 +14,7 @@ app.set("views", path.join(__dirname, "views"));
 
 app.use("/", resumeRoutes);
 
+// home page 
 app.get("/", (req, res) => {
     res.send("<h1>Welcome to CraftMyCV Project! 💼</h1>");
 });

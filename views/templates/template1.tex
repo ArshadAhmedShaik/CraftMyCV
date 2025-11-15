@@ -1,0 +1,123 @@
+\documentclass[letterpaper,11pt]{article}
+
+\usepackage{latexsym}
+\usepackage[empty]{fullpage}
+\usepackage{titlesec}
+\usepackage{marvosym}
+\usepackage[usenames,dvipsnames]{color}
+\usepackage{verbatim}
+\usepackage{enumitem}
+\usepackage[hidelinks]{hyperref}
+\usepackage{fancyhdr}
+\usepackage[english]{babel}
+\usepackage{tabularx}
+\usepackage{fontawesome5}
+\usepackage{multicol}
+\input{glyphtounicode}
+
+\pagestyle{fancy}
+\fancyhf{}
+\fancyfoot{}
+\renewcommand{\headrulewidth}{0pt}
+\renewcommand{\footrulewidth}{0pt}
+
+\addtolength{\oddsidemargin}{-0.6in}
+\addtolength{\evensidemargin}{-0.5in}
+\addtolength{\textwidth}{1.19in}
+\addtolength{\topmargin}{-.7in}
+\addtolength{\textheight}{1.4in}
+
+\urlstyle{same}
+\raggedbottom
+\raggedright
+\setlength{\tabcolsep}{0in}
+
+\titleformat{\section}{
+  \vspace{-4pt}\scshape\raggedright\large\bfseries
+}{}{0em}{}[\color{black}\titlerule \vspace{-5pt}]
+
+\pdfgentounicode=1
+
+% Custom short commands
+\newcommand{\resumeItem}[1]{\item\small{{#1 \vspace{-2pt}}}}
+\newcommand{\resumeSubHeadingListStart}{\begin{itemize}[leftmargin=0.0in, label={}]}
+\newcommand{\resumeSubHeadingListEnd}{\end{itemize}}
+\newcommand{\resumeItemListStart}{\begin{itemize}}
+\newcommand{\resumeItemListEnd}{\end{itemize}\vspace{-5pt}}
+
+\begin{document}
+
+%==========================
+% HEADER
+%==========================
+
+\begin{center}
+    {\Huge \scshape {{full_name}} } \\ \vspace{1pt}
+    {{address}} \\ \vspace{1pt}
+    \small \raisebox{-0.1\height}\faPhone\ {{phone}}
+    ~ \href{mailto:{{email}}}{\raisebox{-0.2\height}\faEnvelope\ \underline{{email}}}
+    ~ \href{ {{linkedin}} }{\raisebox{-0.2\height}\faLinkedin\ \underline{{linkedin}}}
+    ~ \href{ {{github}} }{\raisebox{-0.2\height}\faGithub\ \underline{{github}}}
+\end{center}
+
+%==========================
+% EDUCATION
+%==========================
+
+\section{Education}
+\resumeSubHeadingListStart
+{{education_block}}
+\resumeSubHeadingListEnd
+
+%==========================
+% COURSEWORK
+%==========================
+
+\section{Relevant Coursework}
+\begin{multicols}{4}
+\begin{itemize}[itemsep=-5pt, parsep=3pt]
+{{coursework_block}}
+\end{itemize}
+\end{multicols}
+
+%==========================
+% EXPERIENCE
+%==========================
+
+\section{Experience}
+\resumeSubHeadingListStart
+{{experience_block}}
+\resumeSubHeadingListEnd
+
+%==========================
+% PROJECTS
+%==========================
+
+\section{Projects}
+\resumeSubHeadingListStart
+{{projects_block}}
+\resumeSubHeadingListEnd
+
+%==========================
+% SKILLS
+%==========================
+
+\section{Technical Skills}
+\begin{itemize}[leftmargin=0.15in, label={}]
+\small{\item{
+\textbf{Languages:} {{skills_languages}} \\
+\textbf{Developer Tools:} {{skills_tools}} \\
+\textbf{Technologies / Frameworks:} {{skills_tech}} \\
+}}
+\end{itemize}
+
+%==========================
+% EXTRACURRICULAR
+%==========================
+
+\section{Leadership / Extracurricular}
+\resumeSubHeadingListStart
+{{extracurricular_block}}
+\resumeSubHeadingListEnd
+
+\end{document}
