@@ -1,0 +1,317 @@
+/* ==========================================================================
+   styleForm.css — Clean & Structured
+   ========================================================================== */
+
+/* ---------------------------
+   1) Theme Variables
+   --------------------------- */
+:root {
+  --bg: #ffffff;
+  --fg: #0b0b0b;
+  --muted: #666666;
+  --border: #0b0b0b;
+  --accent-bg: #f8f8f8;
+  --radius: 8px;
+  --max-width: 960px;
+  --gap: 14px;
+  --shadow: rgba(0, 0, 0, 0.04);
+
+  --mono: "Segoe UI", Roboto, Arial, sans-serif;
+  --mono-serif: Georgia, "Times New Roman", serif;
+
+  --format-color: crimson;
+  --input-border: #bbb;
+  --card-shadow: 0 2px 8px rgba(0, 0, 0, 0.03);
+}
+
+/* ---------------------------
+   2) Reset & Base
+   --------------------------- */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  height: 100%;
+  margin: 0;
+  /* background: rgba(250, 235, 215, 0.2); */
+  color: var(--fg);
+  font-family: var(--mono);
+  font-size: 16px;
+  line-height: 1.45;
+}
+
+/* ---------------------------
+   3) Page Layout
+   --------------------------- */
+body > form,
+.container {
+  max-width: var(--max-width);
+  margin: 32px auto;
+  padding: 28px;
+  border-radius: 12px;
+  background: linear-gradient(180deg, var(--bg) 0%, var(--accent-bg) 100%);
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+}
+
+/* ---------------------------
+   4) Headings
+   --------------------------- */
+h1 {
+  margin: 0 0 16px;
+  text-align: center;
+  font-family: 'Trebuchet MS', Arial, sans-serif;
+  font-size: 3rem;
+  letter-spacing: 0.6px;
+
+  padding-bottom: 12px;
+  background-color: rgba(240, 248, 255, 0.4);
+  border-bottom-left-radius: 2rem;
+  border-bottom-right-radius: 2rem;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.4);
+
+  transition: 0.2s;
+  cursor: pointer;
+}
+
+h1:hover {
+  color: crimson;
+}
+
+/* ---------------------------
+   5) Section Blocks
+   --------------------------- */
+.section {
+  margin: 20px 0;
+  padding: 14px;
+  border-radius: 8px;
+}
+
+.section h2 {
+  margin: 0 0 12px;
+  font-size: 18px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  font-weight: 700;
+
+  border-left: 4px solid var(--border);
+  padding-left: 10px;
+}
+
+/* ---------------------------
+   6) Labels & Input Fields
+   --------------------------- */
+label {
+  display: inline-block;
+  margin-top: 10px;
+  font-size: 14px;
+  font-weight: 600;
+}
+
+input[type="text"],
+input[type="email"],
+textarea {
+  display: block;
+  width: 100%;
+  padding: 10px 12px;
+  margin-top: 6px;
+
+  background: #fff;
+  color: var(--fg);
+
+  border: 1px solid var(--input-border);
+  border-radius: 6px;
+  min-height: 36px;
+
+  font-size: 15px;
+  outline: none;
+  resize: none;
+
+  transition: border-color .12s ease, box-shadow .12s ease, transform .08s ease;
+}
+
+input:focus,
+textarea:focus {
+  border-color: var(--border);
+  box-shadow: 0 3px 8px rgba(0, 0, 0, 0.06);
+  transform: translateY(-1px);
+}
+
+textarea {
+  min-height: 86px;
+  line-height: 1.4;
+  overflow-y: hidden;
+  font-family: inherit;
+}
+
+/* ---------------------------
+   7) Buttons
+   --------------------------- */
+button {
+  cursor: pointer;
+  padding: 10px 14px;
+  margin-top: 12px;
+
+  border-radius: 8px;
+  border: 1px solid var(--border);
+
+  background: var(--fg);
+  color: var(--bg);
+
+  font-weight: 700;
+  font-size: 13px;
+  text-transform: uppercase;
+  letter-spacing: .6px;
+  transition: 0.12s ease;
+}
+
+button[type="submit"] {
+  width: 100%;
+  padding: 12px 16px;
+  font-size: 16px;
+  border-radius: 10px;
+}
+
+.section > button[type="button"] {
+  background: transparent;
+  color: var(--fg);
+  border: 1px dashed #333;
+  padding: 8px 10px;
+}
+
+button:hover,
+.section > button:hover {
+  opacity: 0.95;
+  transform: translateY(-1px);
+  border: 1px solid black;
+}
+
+/* ---------------------------
+   8) Added Dynamic Boxes (Education, Courses, etc.)
+   --------------------------- */
+.added_box {
+  border: 1px solid #111;
+  background: #fff;
+  padding: 10px 12px;
+
+  margin: 20px 0; /* ensures margin-top when new items added */
+
+  border-radius: 6px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+
+  box-shadow: var(--card-shadow);
+}
+
+.added_box p {
+  margin: 0;
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.ending {
+  text-align: center;
+  padding-bottom: 2rem;
+  font-size: 1.2rem;
+  font-weight: 500;
+}
+
+/* Remove Button */
+.delete_btn {
+  align-self: flex-start;
+  padding: 6px 10px;
+
+  background: #000;
+  color: #fff;
+
+  border: none;
+  border-radius: 6px;
+  font-weight: 700;
+
+  margin-top: 8px;
+  transition: 0.12s ease;
+  cursor: pointer;
+}
+
+.delete_btn:hover {
+  opacity: 0.85;
+  transform: translateY(-1px);
+}
+
+/* ---------------------------
+   9) Format Highlight
+   --------------------------- */
+.format {
+  color: var(--format-color) !important;
+  font-weight: 600;
+}
+
+/* ---------------------------
+   10) Utilities
+   --------------------------- */
+.two-col {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--gap);
+}
+
+@media (min-width: 820px) {
+  .two-col {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+hr {
+  border: none;
+  border-top: 1px dashed #bbb;
+  margin: 18px 0;
+}
+
+.small {
+  font-size: 13px;
+  color: var(--muted);
+}
+
+.center {
+  text-align: center;
+}
+
+:focus {
+  outline: 3px solid rgba(0, 0, 0, 0.08);
+  outline-offset: 2px;
+}
+
+/* ---------------------------
+   11) Print Styles
+   --------------------------- */
+@media print {
+  body,
+  html {
+    background: #fff;
+    color: #000;
+  }
+
+  body > form {
+    border: none;
+    box-shadow: none;
+    padding: 0;
+    max-width: 100%;
+  }
+
+  button,
+  .delete_btn {
+    display: none;
+  }
+
+  hr {
+    border-top: 1px solid #000;
+  }
+
+  .added_box {
+    page-break-inside: avoid;
+  }
+}
