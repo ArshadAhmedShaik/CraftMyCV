@@ -1,0 +1,167 @@
+%-------------------------
+% Resume in Latex — Jake Template (Dynamic Version)
+%------------------------
+
+\documentclass[letterpaper,11pt]{article}
+
+\usepackage{latexsym}
+\usepackage[empty]{fullpage}
+\usepackage{titlesec}
+\usepackage{marvosym}
+\usepackage[usenames,dvipsnames]{color}
+\usepackage{verbatim}
+\usepackage{enumitem}
+\usepackage[hidelinks]{hyperref}
+\usepackage{fancyhdr}
+\usepackage[english]{babel}
+\usepackage{tabularx}
+\usepackage{fontawesome5}
+\usepackage{multicol}
+\input{glyphtounicode}
+
+\setlength{\multicolsep}{-3pt}
+\setlength{\columnsep}{-1pt}
+
+%----------Margins----------
+\pagestyle{fancy}
+\fancyhf{}
+\fancyfoot{}
+\renewcommand{\headrulewidth}{0pt}
+\renewcommand{\footrulewidth}{0pt}
+
+\addtolength{\oddsidemargin}{-0.6in}
+\addtolength{\evensidemargin}{-0.5in}
+\addtolength{\textwidth}{1.19in}
+\addtolength{\topmargin}{-.7in}
+\addtolength{\textheight}{1.4in}
+
+\urlstyle{same}
+\raggedbottom
+\raggedright
+\setlength{\tabcolsep}{0in}
+
+%----------Section Formatting----------
+\titleformat{\section}{
+  \vspace{-4pt}\scshape\raggedright\large\bfseries
+}{}{0em}{}[\color{black}\titlerule \vspace{-5pt}]
+
+\pdfgentounicode=1
+
+%----------Custom Commands----------
+\newcommand{\resumeItem}[1]{\item\small{{#1 \vspace{-2pt}}}}
+\newcommand{\resumeSubheading}[4]{
+  \vspace{-2pt}\item
+  \begin{tabular*}{1.0\textwidth}[t]{l@{\extracolsep{\fill}}r}
+    \textbf{#1} & \textbf{\small #2} \\
+    \textit{\small #3} & \textit{\small #4} \\
+  \end{tabular*}\vspace{-7pt}
+}
+\newcommand{\resumeProjectHeading}[2]{
+  \item
+  \begin{tabular*}{1.0\textwidth}{l@{\extracolsep{\fill}}r}
+    \small#1 & \textbf{\small #2} \\
+  \end{tabular*}\vspace{-7pt}
+}
+
+\newcommand{\resumeSubHeadingListStart}{\begin{itemize}[leftmargin=0in,label={}]} 
+\newcommand{\resumeSubHeadingListEnd}{\end{itemize}}
+\newcommand{\resumeItemListStart}{\begin{itemize}}
+\newcommand{\resumeItemListEnd}{\end{itemize}\vspace{-5pt}}
+
+%=====================================
+%         RESUME STARTS
+%=====================================
+
+\begin{document}
+
+%----------HEADER----------
+\begin{center}
+    {\Huge \scshape Arshad Shaik} \\ \vspace{1pt}
+    Bangalore, Karnataka \\ \vspace{1pt}
+    \small 
+    \raisebox{-0.1\height}\faPhone\ 8919805657
+    ~ \href{mailto:arshad.testing@example.com}{\raisebox{-0.2\height}\faEnvelope\ \underline{arshad.testing@example.com}}
+    ~ \href{https://linkedin.com/in/arshad-shaik}{\raisebox{-0.2\height}\faLinkedin\ \underline{Linkedin}}
+    ~ \href{https://github.com/arshad-dev}{\raisebox{-0.2\height}\faGithub\ \underline{Github}}
+    \vspace{-8pt}
+\end{center}
+
+%-----------EDUCATION-----------
+\section{Education}
+\resumeSubHeadingListStart
+
+\resumeSubheading
+{B.Tech, Computer Science Engineering}{2021 -- 2025}
+{SASTRA University}{Thanjavur, Tamil Nadu}
+
+\resumeSubHeadingListEnd
+
+%-----------COURSEWORK-----------
+\section{Relevant Coursework}
+\begin{multicols}{4}
+\begin{itemize}[itemsep=-5pt,parsep=3pt]
+\item Data Structures \& Algorithms
+\item OOPS
+\item DBMS
+\end{itemize}
+\end{multicols}
+\vspace*{2.0\multicolsep}
+
+%-----------EXPERIENCE-----------
+\section{Experience}
+\resumeSubHeadingListStart
+
+\resumeSubheading
+{TechNova Solutions Pvt Ltd}{May 2024 -- July 2024}
+{Backend Developer Intern}{Chennai, Tamil Nadu}
+\resumeItem{Developed REST APIs in Node.js, optimized backend logic, integrated MongoDB schemas, and improved response time by 28\%.}
+
+\resumeSubHeadingListEnd
+
+%-----------PROJECTS-----------
+\section{Projects}
+\resumeSubHeadingListStart
+
+\resumeProjectHeading
+{project1 (\textit{May 2025})}{}
+\resumeItem{Tech: HTML, CSS, JS}
+\resumeItem{Smtg that works!}
+
+
+\resumeProjectHeading
+{project2 (\textit{May 2025})}{}
+\resumeItem{Tech: HTML, CSS, JS}
+\resumeItem{Smtg that works!}
+
+
+\resumeProjectHeading
+{project3 (\textit{May 2025})}{}
+\resumeItem{Tech: HTML, CSS, JS}
+\resumeItem{Smtg that works!}
+
+\resumeSubHeadingListEnd
+
+%-----------SKILLS-----------
+\section{Technical Skills}
+\begin{itemize}[leftmargin=0.15in,label={}]
+  \small{
+  \item{
+    \textbf{Languages}{: C, C++, Java, JavaScript, Python} \\
+    \textbf{Developer Tools}{: Git, GitHub, VS Code, Postman, MySQL Workbench, Docker} \\
+    \textbf{Technologies/Frameworks}{: Node.js, Express.js, React.js, MongoDB, MySQL, TailwindCSS, Firebase} \\
+  }}
+\end{itemize}
+\vspace{-16pt}
+
+%-----------EXTRA-----------
+\section{Leadership / Extracurricular}
+\resumeSubHeadingListStart
+
+\resumeSubheading
+{Google Developer Student Clubs (GDSC)}{Sep 2023 -- May 2024}
+{Web Development Lead}{}
+\resumeItem{Conducted workshops on JavaScript, guided 40+ students, and led the development of internal club tools.}
+
+\resumeSubHeadingListEnd
+
+\end{document}

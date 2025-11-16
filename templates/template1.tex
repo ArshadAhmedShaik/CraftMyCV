@@ -1,0 +1,134 @@
+%-------------------------
+% Resume in Latex — Jake Template (Dynamic Version)
+%------------------------
+
+\documentclass[letterpaper,11pt]{article}
+
+\usepackage{latexsym}
+\usepackage[empty]{fullpage}
+\usepackage{titlesec}
+\usepackage{marvosym}
+\usepackage[usenames,dvipsnames]{color}
+\usepackage{verbatim}
+\usepackage{enumitem}
+\usepackage[hidelinks]{hyperref}
+\usepackage{fancyhdr}
+\usepackage[english]{babel}
+\usepackage{tabularx}
+\usepackage{fontawesome5}
+\usepackage{multicol}
+\input{glyphtounicode}
+
+\setlength{\multicolsep}{-3pt}
+\setlength{\columnsep}{-1pt}
+
+%----------Margins----------
+\pagestyle{fancy}
+\fancyhf{}
+\fancyfoot{}
+\renewcommand{\headrulewidth}{0pt}
+\renewcommand{\footrulewidth}{0pt}
+
+\addtolength{\oddsidemargin}{-0.6in}
+\addtolength{\evensidemargin}{-0.5in}
+\addtolength{\textwidth}{1.19in}
+\addtolength{\topmargin}{-.7in}
+\addtolength{\textheight}{1.4in}
+
+\urlstyle{same}
+\raggedbottom
+\raggedright
+\setlength{\tabcolsep}{0in}
+
+%----------Section Formatting----------
+\titleformat{\section}{
+  \vspace{-4pt}\scshape\raggedright\large\bfseries
+}{}{0em}{}[\color{black}\titlerule \vspace{-5pt}]
+
+\pdfgentounicode=1
+
+%----------Custom Commands----------
+\newcommand{\resumeItem}[1]{\item\small{{#1 \vspace{-2pt}}}}
+\newcommand{\resumeSubheading}[4]{
+  \vspace{-2pt}\item
+  \begin{tabular*}{1.0\textwidth}[t]{l@{\extracolsep{\fill}}r}
+    \textbf{#1} & \textbf{\small #2} \\
+    \textit{\small #3} & \textit{\small #4} \\
+  \end{tabular*}\vspace{-7pt}
+}
+\newcommand{\resumeProjectHeading}[2]{
+  \item
+  \begin{tabular*}{1.0\textwidth}{l@{\extracolsep{\fill}}r}
+    \small#1 & \textbf{\small #2} \\
+  \end{tabular*}\vspace{-7pt}
+}
+
+\newcommand{\resumeSubHeadingListStart}{\begin{itemize}[leftmargin=0in,label={}]} 
+\newcommand{\resumeSubHeadingListEnd}{\end{itemize}}
+\newcommand{\resumeItemListStart}{\begin{itemize}}
+\newcommand{\resumeItemListEnd}{\end{itemize}\vspace{-5pt}}
+
+%=====================================
+%         RESUME STARTS
+%=====================================
+
+\begin{document}
+
+%----------HEADER----------
+\begin{center}
+    {\Huge \scshape %FULL_NAME%} \\ \vspace{1pt}
+    %ADDRESS% \\ \vspace{1pt}
+    \small 
+    \raisebox{-0.1\height}\faPhone\ %PHONE%
+    ~ \href{mailto:%EMAIL%}{\raisebox{-0.2\height}\faEnvelope\ \underline{%EMAIL%}}
+    ~ \href{%LINKEDIN%}{\raisebox{-0.2\height}\faLinkedin\ \underline{Linkedin}}
+    ~ \href{%GITHUB%}{\raisebox{-0.2\height}\faGithub\ \underline{Github}}
+    \vspace{-8pt}
+\end{center}
+
+%-----------EDUCATION-----------
+\section{Education}
+\resumeSubHeadingListStart
+%EDUCATION_BLOCK%
+\resumeSubHeadingListEnd
+
+%-----------COURSEWORK-----------
+\section{Relevant Coursework}
+\begin{multicols}{4}
+\begin{itemize}[itemsep=-5pt,parsep=3pt]
+%COURSEWORK_BLOCK%
+\end{itemize}
+\end{multicols}
+\vspace*{2.0\multicolsep}
+
+%-----------EXPERIENCE-----------
+\section{Experience}
+\resumeSubHeadingListStart
+%EXPERIENCE_BLOCK%
+\resumeSubHeadingListEnd
+
+%-----------PROJECTS-----------
+\section{Projects}
+\resumeSubHeadingListStart
+%PROJECTS_BLOCK%
+\resumeSubHeadingListEnd
+
+%-----------SKILLS-----------
+\section{Technical Skills}
+\begin{itemize}[leftmargin=0.15in,label={}]
+  \small{
+  \item{
+    \textbf{Languages}{: %SKILLS_LANGUAGES%} \\
+    \textbf{Developer Tools}{: %SKILLS_TOOLS%} \\
+    \textbf{Technologies/Frameworks}{: %SKILLS_TECH%} \\
+  }}
+\end{itemize}
+\vspace{-16pt}
+
+%-----------EXTRA-----------
+\section{Leadership / Extracurricular}
+\resumeSubHeadingListStart
+%EXTRA_BLOCK%
+\resumeSubHeadingListEnd
+
+\end{document}

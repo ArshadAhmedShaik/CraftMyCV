@@ -1,0 +1,190 @@
+%-------------------------
+% Resume in Latex — Jake Template (Dynamic Version)
+%------------------------
+
+\documentclass[letterpaper,11pt]{article}
+
+\usepackage{latexsym}
+\usepackage[empty]{fullpage}
+\usepackage{titlesec}
+\usepackage{marvosym}
+\usepackage[usenames,dvipsnames]{color}
+\usepackage{verbatim}
+\usepackage{enumitem}
+\usepackage[hidelinks]{hyperref}
+\usepackage{fancyhdr}
+\usepackage[english]{babel}
+\usepackage{tabularx}
+\usepackage{fontawesome5}
+\usepackage{multicol}
+\input{glyphtounicode}
+
+\setlength{\multicolsep}{-3pt}
+\setlength{\columnsep}{-1pt}
+
+%----------Margins----------
+\pagestyle{fancy}
+\fancyhf{}
+\fancyfoot{}
+\renewcommand{\headrulewidth}{0pt}
+\renewcommand{\footrulewidth}{0pt}
+
+\addtolength{\oddsidemargin}{-0.6in}
+\addtolength{\evensidemargin}{-0.5in}
+\addtolength{\textwidth}{1.19in}
+\addtolength{\topmargin}{-.7in}
+\addtolength{\textheight}{1.4in}
+
+\urlstyle{same}
+\raggedbottom
+\raggedright
+\setlength{\tabcolsep}{0in}
+
+%----------Section Formatting----------
+\titleformat{\section}{
+  \vspace{-4pt}\scshape\raggedright\large\bfseries
+}{}{0em}{}[\color{black}\titlerule \vspace{-5pt}]
+
+\pdfgentounicode=1
+
+%----------Custom Commands----------
+\newcommand{\resumeItem}[1]{\item\small{{#1 \vspace{-2pt}}}}
+\newcommand{\resumeSubheading}[4]{
+  \vspace{-2pt}\item
+  \begin{tabular*}{1.0\textwidth}[t]{l@{\extracolsep{\fill}}r}
+    \textbf{#1} & \textbf{\small #2} \\
+    \textit{\small #3} & \textit{\small #4} \\
+  \end{tabular*}\vspace{-7pt}
+}
+\newcommand{\resumeProjectHeading}[2]{
+  \item
+  \begin{tabular*}{1.0\textwidth}{l@{\extracolsep{\fill}}r}
+    \small#1 & \textbf{\small #2} \\
+  \end{tabular*}\vspace{-7pt}
+}
+
+\newcommand{\resumeSubHeadingListStart}{\begin{itemize}[leftmargin=0in,label={}]} 
+\newcommand{\resumeSubHeadingListEnd}{\end{itemize}}
+\newcommand{\resumeItemListStart}{\begin{itemize}}
+\newcommand{\resumeItemListEnd}{\end{itemize}\vspace{-5pt}}
+
+%=====================================
+%         RESUME STARTS
+%=====================================
+
+\begin{document}
+
+%----------HEADER----------
+\begin{center}
+    {\Huge \scshape First Last} \\ \vspace{1pt}
+    123 Street Name, Town, State 12345 \\ \vspace{1pt}
+    \small 
+    \raisebox{-0.1\height}\faPhone\  123-456-7890 
+    ~ \href{mailto:email@gmail.com}{\raisebox{-0.2\height}\faEnvelope\ \underline{email@gmail.com}}
+    ~ \href{linkedin.com/in/username}{\raisebox{-0.2\height}\faLinkedin\ \underline{Linkedin}}
+    ~ \href{github.com/username}{\raisebox{-0.2\height}\faGithub\ \underline{Github}}
+    \vspace{-8pt}
+\end{center}
+
+%-----------EDUCATION-----------
+\section{Education}
+\resumeSubHeadingListStart
+
+\resumeSubHeadingListEnd
+
+%-----------COURSEWORK-----------
+\section{Relevant Coursework}
+\begin{multicols}{4}
+\begin{itemize}[itemsep=-5pt,parsep=3pt]
+\item Data Structures 
+\item Oops
+\item DBMS
+\item Software Engg
+\item Operating Systems
+\end{itemize}
+\end{multicols}
+\vspace*{2.0\multicolsep}
+
+%-----------EXPERIENCE-----------
+\section{Experience}
+\resumeSubHeadingListStart
+
+\resumeSubheading
+{Electronics Company}{May 2025 -- July 2026}
+{Software Engineer }{City, State}
+\resumeItem{ Developed a service to automatically perform a set of unit tests daily on a product in development in order to decrease
+time needed for team members to identify and fix bugs/issues.
+• Incorporated scripts using Python and PowerShell to aggregate XML test results into an organized format and to load
+the latest build code onto the hardware, so that daily testing can be performed.
+• Utilized Jenkins to provide a continuous integration service in order to automate the entire process of loading the latest
+build code and test files, running the tests, and generating a report of the results once per day.
+• Explored ways to visualize and send a daily report of test results to team members using HTML, Javascript, and CSS.}
+
+
+\resumeSubheading
+{Startup, Inc }{May 2019  -- August 2019}
+{Front End Developer Intern }{City, State}
+\resumeItem{Assisted in development of the front end of a mobile application for iOS/Android using Dart and the Flutter framework.
+• Worked with Google Firebase to manage user inputted data across multiple platforms including web and mobile apps.
+• Collaborated with team members using version control systems such as Git to organize modifications and assign tasks.
+• Utilized Android Studio as a development environment in order to visualize the application in both iOS and Android.}
+
+\resumeSubHeadingListEnd
+
+%-----------PROJECTS-----------
+\section{Projects}
+\resumeSubHeadingListStart
+
+\resumeProjectHeading
+{Gym Reservation Bot (\textit{May 2025})}{}
+\resumeItem{Tech: Python, Selenium, Google Cloud Console }
+\resumeItem{Developed an automatic bot using Python and Google Cloud Console to register myself for a timeslot at my school gym.
+Implemented Selenium to create an instance of Chrome in order to interact with the correct elements of the web page.
+Created a Linux virtual machine to run on Google Cloud so that the program is able to run everyday from the cloud.
+Used Cron to schedule the program to execute automatically at 11 AM every morning so a reservation is made for me}
+
+
+\resumeProjectHeading
+{Ticket Price Calculator App (\textit{Nov 2020})}{}
+\resumeItem{Tech: Java, Android Studio November 2020}
+\resumeItem{Created an Android application using Java and Android Studio to calculate ticket prices for trips to museums in NYC.
+Processed user inputted information in the back-end of the app to return a subtotal price based on the tickets selected.
+Utilized the layout editor to create a UI for the application in order to allow different scenes to interact with each other.}
+
+
+\resumeProjectHeading
+{Transaction Management GUI  (\textit{May 2027})}{}
+\resumeItem{Tech: ava, Eclipse, JavaFX }
+\resumeItem{Designed a sample banking transaction system using Java to simulate the common functions of using a bank account.
+Used JavaFX to create a GUI that supports actions such as creating an account, deposit, withdraw, list all acounts, etc.
+Implemented object-oriented programming practices such as inheritance to create different account types and databas}
+
+\resumeSubHeadingListEnd
+
+%-----------SKILLS-----------
+\section{Technical Skills}
+\begin{itemize}[leftmargin=0.15in,label={}]
+  \small{
+  \item{
+    \textbf{Languages}{: Python, Java, C, HTML/CSS, JavaScript, SQL} \\
+    \textbf{Developer Tools}{: VS Code, Eclipse, Google Cloud Platform, Android Studio} \\
+    \textbf{Technologies/Frameworks}{: Linux, Jenkins, GitHub, JUnit, WordPress} \\
+  }}
+\end{itemize}
+\vspace{-16pt}
+
+%-----------EXTRA-----------
+\section{Leadership / Extracurricular}
+\resumeSubHeadingListStart
+
+\resumeSubheading
+{Fraternity }{May 2025 -- July 2025}
+{President }{}
+\resumeItem{Achieved a 4 star fraternity ranking by the Office of Fraternity and Sorority Affairs (highest possible ranking).
+Managed executive board of 5 members and ran weekly meetings to oversee progress in essential parts of the chapter.
+Led chapter of 30+ members to work towards goals that improve and promote community service, academics, and unity.
+}
+
+\resumeSubHeadingListEnd
+
+\end{document}

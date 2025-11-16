@@ -8,9 +8,11 @@ const app = express();
 const PORT = 8080;
 
 app.use(express.static(path.join(__dirname, "public")));
+app.use("/generated", express.static(path.join(__dirname, "generated")));
 app.use(bodyParser.urlencoded({ extended: true }));
 app.set("view engine", "ejs");
 app.set("views", path.join(__dirname, "views"));
+
 
 app.use("/", resumeRoutes);
 

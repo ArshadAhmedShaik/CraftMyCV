@@ -1,13 +1,33 @@
 const express = require("express");
 const router = express.Router();
+const path = require("path");
+const fs = require("fs");
 const db = require("../db/connection");
+const util = require("util");
+const exec = util.promisify(require("child_process").exec);
+
+
+function escapeLatex(text = "") {
+    return text
+        .replace(/\\/g, "\\textbackslash{}")
+        .replace(/&/g, "\\&")
+        .replace(/%/g, "\\%")
+        .replace(/\$/g, "\\$")
+        .replace(/#/g, "\\#")
+        .replace(/_/g, "\\_")
+        .replace(/{/g, "\\{")
+        .replace(/}/g, "\\}")
+        .replace(/\^/g, "\\^{}")
+        .replace(/~/g, "\\~{}");
+}
+
 
 router.get("/resume", (req, res) => {
     res.render("resumeForm");
 });
 
 router.post("/resume", (req, res) => {
-    const userId = 3;
+    const userId = 10;
 
     const {
         full_name, phone, email, address, linkedin, github, portfolio,
@@ -116,50 +136,12 @@ router.post("/resume", (req, res) => {
 
 router.get("/resume/:resumeId/templates", (req, res) => {
     const { resumeId } = req.params;
-    const data = { resumeId };
-
-    const personal_info_query = "SELECT * FROM personal_info WHERE resume_id = ?";
-    db.query(personal_info_query, [resumeId], (err, personalResult) => {
-        if (err) throw err;
-        data.personal_info = personalResult;
-
-        const education_query = "SELECT * FROM education WHERE resume_id = ?";
-        db.query(education_query, [resumeId], (err, educationResult) => {
-            if (err) throw err;
-            data.education = educationResult;
-
-            const coursework_query = "SELECT * FROM coursework WHERE resume_id = ?";
-            db.query(coursework_query, [resumeId], (err, courseworkResult) => {
-                if (err) throw err;
-                data.coursework = courseworkResult;
-
-                const experience_query = "SELECT * FROM experience WHERE resume_id = ?";
-                db.query(experience_query, [resumeId], (err, experienceResult) => {
-                    if (err) throw err;
-                    data.experience = experienceResult;
-
-                    const projects_query = "SELECT * FROM projects WHERE resume_id = ?";
-                    db.query(projects_query, [resumeId], (err, projectsResult) => {
-                        if (err) throw err;
-                        data.projects = projectsResult;
-
-                        const skills_query = "SELECT * FROM technical_skills WHERE resume_id = ?";
-                        db.query(skills_query, [resumeId], (err, skillsResult) => {
-                            if (err) throw err;
-                            data.technical_skills = skillsResult;
-
-                            const extra_query = "SELECT * FROM extracurricular WHERE resume_id = ?";
-                            db.query(extra_query, [resumeId], (err, extraResult) => {
-                                if (err) throw err;
-                                data.extracurricular = extraResult;
-
-                                res.render("templates", { data });
-                            });
-                        });
-                    });
-                });
-            });
-        });
+    const resumeSelectQuery = `SELECT * FROM resumes where id = ?`;
+    db.query(resumeSelectQuery, [resumeId], (err, result) => {
+        if (err || result.length == 0) {
+            return res.send("Resume Not found!");
+        }
+        res.render("templates", { resumeId });
     });
 });
 
@@ -201,7 +183,6 @@ router.get("/resume/:resumeId/templates/:templateId", (req, res) => {
                             db.query(extra_query, [resumeId], (err, extraResult) => {
                                 if (err) throw err;
                                 data.extracurricular = extraResult;
-                                console.log(data);
                                 res.render("template.ejs", { data });
                             });
                         });
@@ -211,5 +192,129 @@ router.get("/resume/:resumeId/templates/:templateId", (req, res) => {
         });
     });
 });
+
+
+router.get("/resume/:resumeId/templates/:templateId/view", async (req, res) => {
+    try {
+        const { resumeId, templateId } = req.params;
+
+        const query = (sql, params) =>
+            new Promise((resolve, reject) => {
+                db.query(sql, params, (err, result) => {
+                    if (err) reject(err);
+                    else resolve(result);
+                });
+            });
+
+        
+        const resume = await query("SELECT * FROM resumes WHERE id = ?", [resumeId]);
+        if (resume.length === 0) return res.send("Resume not found!");
+
+        const personal = await query("SELECT * FROM personal_info WHERE resume_id = ?", [resumeId]);
+        const education = await query("SELECT * FROM education WHERE resume_id = ?", [resumeId]);
+        const coursework = await query("SELECT * FROM coursework WHERE resume_id = ?", [resumeId]);
+        const experience = await query("SELECT * FROM experience WHERE resume_id = ?", [resumeId]);
+        const projects = await query("SELECT * FROM projects WHERE resume_id = ?", [resumeId]);
+        const skills = await query("SELECT * FROM technical_skills WHERE resume_id = ?", [resumeId]);
+        const extra = await query("SELECT * FROM extracurricular WHERE resume_id = ?", [resumeId]);
+
+        const p = personal[0] || {};
+        const s = skills[0] || {};
+
+     
+        const templatePath = path.join(__dirname, "..", "templates", `template${templateId}.tex`);
+        let latex = fs.readFileSync(templatePath, "utf8");
+
+        const safe = (v) => escapeLatex(v || "");
+
+      
+        latex = latex
+            .replace(/%FULL_NAME%/g, safe(p.full_name))
+            .replace(/%PHONE%/g, safe(p.phone))
+            .replace(/%EMAIL%/g, safe(p.email))
+            .replace(/%ADDRESS%/g, safe(p.address))
+            .replace(/%LINKEDIN%/g, safe(p.linkedin))
+            .replace(/%GITHUB%/g, safe(p.github));
+
+        
+        const eduBlock = education.map(e => `
+\\resumeSubheading
+{${safe(e.degree)}}{${safe(e.start_year)} -- ${safe(e.end_year)}}
+{${safe(e.institution)}}{${safe(e.city)}, ${safe(e.state)}}
+`).join("\n");
+
+        latex = latex.replace(/%EDUCATION_BLOCK%/g, eduBlock);
+
+   
+        const courseBlock = coursework.map(c => `\\item ${safe(c.course_name)}`).join("\n");
+        latex = latex.replace(/%COURSEWORK_BLOCK%/g, courseBlock);
+
+        
+        const expBlock = experience.map(ex => `
+\\resumeSubheading
+{${safe(ex.company_name)}}{${safe(ex.start_date)} -- ${safe(ex.end_date)}}
+{${safe(ex.role_name)}}{${safe(ex.city)}, ${safe(ex.state)}}
+\\resumeItem{${safe(ex.description)}}
+`).join("\n");
+
+        latex = latex.replace(/%EXPERIENCE_BLOCK%/g, expBlock);
+
+        
+        const projBlock = projects.map(pj => `
+\\resumeProjectHeading
+{${safe(pj.project_name)} (\\textit{${safe(pj.project_date)}})}{}
+\\resumeItem{Tech: ${safe(pj.tech_stack)}}
+\\resumeItem{${safe(pj.project_description)}}
+`).join("\n");
+
+        latex = latex.replace(/%PROJECTS_BLOCK%/g, projBlock);
+
+        
+        latex = latex
+            .replace(/%SKILLS_LANGUAGES%/g, safe(s.languages))
+            .replace(/%SKILLS_TOOLS%/g, safe(s.developer_tools))
+            .replace(/%SKILLS_TECH%/g, safe(s.technologies_or_frameworks));
+
+       
+        const extraBlock = extra.map(ex => `
+\\resumeSubheading
+{${safe(ex.title)}}{${safe(ex.start_date)} -- ${safe(ex.end_date)}}
+{${safe(ex.role)}}{}
+\\resumeItem{${safe(ex.description)}}
+`).join("\n");
+
+        latex = latex.replace(/%EXTRA_BLOCK%/g, extraBlock);
+
+        
+        const outputTex = path.join(__dirname, "..", "generated", `resume_${resumeId}_template${templateId}.tex`);
+        fs.writeFileSync(outputTex, latex);
+
+        
+        const outputDir = path.dirname(outputTex);
+
+        await exec(`pdflatex -interaction=nonstopmode -output-directory "${outputDir}" "${outputTex}"`);
+
+        
+        res.render("previewTemplate", {
+            pdfPath: `/generated/resume_${resumeId}_template${templateId}.pdf`,
+            resumeId,
+            templateId
+        });
+
+    } catch (err) {
+        console.error("PDF ERROR:", err);
+        res.send("Something went wrong while generating the PDF!");
+    }
+});
+
+
+
+router.get("/resume/:resumeId/templates/:templateId/download", (req, res) => {
+    const { resumeId, templateId } = req.params;
+
+
+
+});
+
 
 module.exports = router;
