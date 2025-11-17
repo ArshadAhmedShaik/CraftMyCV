@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.27 (MiKTeX 25.4) (preloaded format=pdflatex 2025.11.16)  16 NOV 2025 18:29
+This is pdfTeX, Version 3.141592653-2.6-1.40.27 (MiKTeX 25.4) (preloaded format=pdflatex 2025.11.16)  17 NOV 2025 13:13
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -406,7 +406,7 @@ Package: multicol 2025/10/21 v2.0b multicolumn formatting (FMi)
 )
 (C:\Users\arsha\AppData\Local\Programs\MiKTeX\tex/generic/pdftex\glyphtounicode
 .tex)
-No file resume_7_template1.aux.
+(C:\Users\arsha\OneDrive\Desktop\CraftMyCV\generated\resume_7_template1.aux)
 \openout1 = `resume_7_template1.aux'.
 
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 75.
@@ -444,6 +444,8 @@ ii
 \everyMPtoPDFconversion=\toks27
 )
 Package hyperref Info: Link coloring OFF on input line 75.
+ (C:\Users\arsha\OneDrive\Desktop\CraftMyCV\generated\resume_7_template1.out)
+(C:\Users\arsha\OneDrive\Desktop\CraftMyCV\generated\resume_7_template1.out)
 \@outlinefile=\write3
 \openout3 = `resume_7_template1.out'.
 
@@ -508,20 +510,14 @@ L3 programming layer <2025-10-24>
 
 LaTeX Font Warning: Some font shapes were not available, defaults substituted.
 
-
-Package rerunfilecheck Warning: File `resume_7_template1.out' has changed.
-(rerunfilecheck)                Rerun to get outlines right
-(rerunfilecheck)                or use package `bookmark'.
-
-Package rerunfilecheck Info: Checksums for `resume_7_template1.out':
-(rerunfilecheck)             Before: <no file>
-(rerunfilecheck)             After:  234422543FC3FC56BBB8AE2E0FF03DEF;720.
+Package rerunfilecheck Info: File `resume_7_template1.out' has not changed.
+(rerunfilecheck)             Checksum: 234422543FC3FC56BBB8AE2E0FF03DEF;720.
  ) 
 Here is how much of TeX's memory you used:
- 14187 strings out of 467871
- 247118 string characters out of 5418375
- 674243 words of memory out of 5000000
- 42910 multiletter control sequences out of 15000+600000
+ 14202 strings out of 467871
+ 247700 string characters out of 5418375
+ 674246 words of memory out of 5000000
+ 42919 multiletter control sequences out of 15000+600000
  635191 words of font info for 68 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  75i,11n,79p,363b,464s stack positions out of 10000i,1000n,20000p,200000b,200000s
@@ -536,9 +532,9 @@ fb><C:/Users/arsha/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm
 msfonts/cm/cmr10.pfb><C:/Users/arsha/AppData/Local/Programs/MiKTeX/fonts/type1/
 public/amsfonts/cm/cmti10.pfb>
 Output written on C:\Users\arsha\OneDrive\Desktop\CraftMyCV\generated\resume_7_
-template1.pdf (1 page, 108755 bytes).
+template1.pdf (1 page, 110629 bytes).
 PDF statistics:
- 68 PDF objects out of 1000 (max. 8388607)
+ 87 PDF objects out of 1000 (max. 8388607)
  8 named destinations out of 1000 (max. 500000)
- 1 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 49 words of extra memory for PDF output out of 10000 (max. 10000000)
 
